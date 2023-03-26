@@ -32,8 +32,8 @@ export const Form = () => {
     <StyledForm>
       <Title>Welcome to App</Title>
       <Subtitle>Let's go calculate your tips</Subtitle>
-      <Input $placeholder="Enter bill" callInput={handleBillInput} />
-      <Input $placeholder="Enter persons" callInput={handlePersonInput} />
+      <Input $placeholder="Enter bill" callbackInput={handleBillInput} />
+      <Input $placeholder="Enter persons" callbackInput={handlePersonInput} />
       <CustomSelect handleTipsSelect={handleTipsSelect} />
       <Total>Total: {total}$</Total>
       <Button onClick={handleTotal} enabled={enabled} />

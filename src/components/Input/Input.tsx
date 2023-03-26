@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyledInput } from "./styles";
 
 interface InputProps {
   $placeholder: string;
-  callInput: (arg: string) => void;
+  callbackInput: (arg: string) => void;
 }
 
-export const Input = ({ $placeholder, callInput }: InputProps) => {
+export const Input = ({ $placeholder, callbackInput }: InputProps) => {
   const handleChange = (event: any) => {
-    callInput(event.target.value);
+    callbackInput(event.target.value);
   };
 
   return (

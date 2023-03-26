@@ -29,6 +29,7 @@ export const CustomSelect = ({ handleTipsSelect }: CustomSelectProps) => {
           border: 'none',
           borderRadius: '34px',
           fontSize: '18px',
+          '@media (max-width: 768px)': { width: '330px' },
         }),
       }}
     />
