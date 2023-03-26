@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form } from './components/Form/Form';
+import React from "react";
+import { Form } from "./components/Form/Form";
 
 const App = () => {
   return (
@@ -7,6 +7,6 @@ const App = () => {
       <Form />
     </>
   );
-}
+};
 
 export default App;
