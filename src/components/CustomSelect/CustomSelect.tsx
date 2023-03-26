@@ -20,6 +20,17 @@ export const CustomSelect = ({ handleTipsSelect }: CustomSelectProps) => {
     <Select 
       options={options} 
       onChange={onHandleChange}
+      styles={{
+        control: (baseStyles) => ({
+          ...baseStyles,
+          width: '560px',
+          height: '68px',
+          textAlign: 'center',
+          border: 'none',
+          borderRadius: '34px',
+          fontSize: '18px',
+        }),
+      }}
     />
   )
 }
