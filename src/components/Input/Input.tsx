@@ -1,21 +1,19 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { StyledInput } from "./styles";
 
 interface InputProps {
   $placeholder: string;
-  callbackInput: (arg: string) => void;
+  callbackInput: (arg: ChangeEvent<HTMLInputElement>) => void;
+  $value: string;
 }
 
-export const Input = ({ $placeholder, callbackInput }: InputProps) => {
-  const handleChange = (event: any) => {
-    callbackInput(event.target.value);
-  };
-
+export const Input = ({ $placeholder, callbackInput, $value }: InputProps) => {
   return (
     <StyledInput
+      value={$value}
       type="number"
       placeholder={$placeholder}
-      onChange={handleChange}
+      onChange={callbackInput}
     />
   );
 };

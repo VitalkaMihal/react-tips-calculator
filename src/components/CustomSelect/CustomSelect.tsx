@@ -1,8 +1,12 @@
 import React from 'react';
 import Select from 'react-select';
 
+interface EventProp {
+  value: string;
+  label: string;
+}
 interface CustomSelectProps {
-  handleTipsSelect: (arg: string) => void;
+  handleTipsSelect: (arg: any) => void;
 }
 
 const options = [
@@ -12,14 +16,11 @@ const options = [
 ]
 
 export const CustomSelect = ({ handleTipsSelect }: CustomSelectProps) => {
-  const onHandleChange = (e: any) => {
-    handleTipsSelect(e.value);
-  }
-
   return (
     <Select 
       options={options} 
-      onChange={onHandleChange}
+      defaultValue={options[0]}
+      onChange={handleTipsSelect}
       styles={{
         control: (baseStyles) => ({
           ...baseStyles,
