@@ -6,7 +6,7 @@ interface EventProp {
   label: string;
 }
 interface CustomSelectProps {
-  handleTipsSelect: (arg: any) => void;
+  handleTipsSelect: (event: any) => void;
 }
 
 const options = [
@@ -16,6 +16,7 @@ const options = [
 ]
 
 export const CustomSelect = ({ handleTipsSelect }: CustomSelectProps) => {
+  console.log(typeof handleTipsSelect)
   return (
     <Select 
       options={options} 

@@ -3,7 +3,7 @@ import { StyledInput } from "./styles";
 
 interface InputProps {
   $placeholder: string;
-  callbackInput: (arg: ChangeEvent<HTMLInputElement>) => void;
+  callbackInput: (event: ChangeEvent<HTMLInputElement>) => void;
   $value: string;
 }
 
