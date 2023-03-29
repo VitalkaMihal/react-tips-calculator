@@ -4,7 +4,7 @@ import { Input } from "../Input/Input";
 import { CustomSelect } from "../CustomSelect/CustomSelect";
 import { Button } from "../Button/Button";
 
-interface EventProp {
+export interface EventProp {
   value: string;
   label: string;
 }
@@ -39,7 +39,7 @@ export const Form = () => {
       <Subtitle>Let's go calculate your tips</Subtitle>
       <Input $placeholder="Enter bill" $value={bill} callbackInput={handleBillInput} />
       <Input $placeholder="Enter persons" $value={persons} callbackInput={handlePersonInput} />
-      <CustomSelect handleTipsSelect={handleTipsSelect} />
+      <CustomSelect handleTipsSelect={handleTipsSelect} $value={tips} />
       <Total>Total: {total}$</Total>
       <Button onClick={handleTotal} enabled={enabled} />
     </StyledForm>
