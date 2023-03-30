@@ -1,11 +1,10 @@
 import React from 'react';
-import Select from 'react-select';
+import Select, { SingleValue } from 'react-select';
 import { selectStyle } from './styles';
 import { EventProp } from '../Form/Form';
 
 interface CustomSelectProps {
-  handleTipsSelect: (event: any) => void;
-  $value: string;
+  handleTipsSelect: (option: SingleValue<EventProp>) => void;
 }
 
 const options = [
@@ -14,7 +13,7 @@ const options = [
   { value: '1.2', label: '20%' }
 ]
 
-export const CustomSelect = ({ handleTipsSelect, $value }: CustomSelectProps) => {
+export const CustomSelect = ({ handleTipsSelect }: CustomSelectProps) => {
   return (
     <Select 
       options={options} 

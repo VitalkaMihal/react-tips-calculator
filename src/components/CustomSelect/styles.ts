@@ -1,10 +1,7 @@
 import { StylesConfig } from "react-select";
+import { EventProp } from "../Form/Form";
 
-interface selectStyleProps {
-  [property: string]: string;
-}
-
-export const selectStyle: StylesConfig<selectStyleProps> = {
+export const selectStyle: StylesConfig<EventProp, false> = {
   control: (baseStyles) => ({
     ...baseStyles,
     height: "68px",
