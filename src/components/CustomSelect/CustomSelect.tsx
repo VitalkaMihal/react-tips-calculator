@@ -5,19 +5,20 @@ import { EventProp } from '../Form/Form';
 
 interface CustomSelectProps {
   handleTipsSelect: (option: SingleValue<EventProp>) => void;
+  tips: EventProp;
 }
 
-const options = [
+export const options: EventProp[] = [
   { value: '1.1', label: '10%' },
   { value: '1.15', label: '15%' },
   { value: '1.2', label: '20%' }
 ]
 
-export const CustomSelect = ({ handleTipsSelect }: CustomSelectProps) => {
+export const CustomSelect = ({ handleTipsSelect, tips }: CustomSelectProps) => {
   return (
     <Select 
       options={options} 
-      defaultValue={options[0]}
+      defaultValue={tips}
       onChange={handleTipsSelect}
       styles={selectStyle}
     />

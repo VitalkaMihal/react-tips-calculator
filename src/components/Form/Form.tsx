@@ -1,9 +1,10 @@
 import React, { ChangeEvent, useState } from "react";
 import { StyledForm, Title, Subtitle, Total } from "./styles";
 import { Input } from "../Input/Input";
-import { CustomSelect } from "../CustomSelect/CustomSelect";
+import { CustomSelect, options } from "../CustomSelect/CustomSelect";
 import { Button } from "../Button/Button";
 import { SingleValue } from "react-select";
+
 
 export interface EventProp {
   value: string;
@@ -13,7 +14,7 @@ export interface EventProp {
 export const Form = () => {
   const [bill, setBill] = useState("");
   const [persons, setPersons] = useState("");
-  const [tips, setTips] = useState("1.1");
+  const [tips, setTips] = useState(options[0]);
   const [total, setTotal] = useState("0,00");
 
   const enabled = Boolean(bill && persons);
@@ -28,13 +29,13 @@ export const Form = () => {
 
   const handleTipsSelect = (event: SingleValue<EventProp>) => {
     if (event) {
-      setTips(event.value);
+      setTips(event);
     }
   };
 
   const handleTotal = () => {
     setTotal(
-      String(((Number(bill) * Number(tips)) / Number(persons)).toFixed(2))
+      String(((Number(bill) * Number(tips.value)) / Number(persons)).toFixed(2))
     );
   };
   return (
@@ -51,7 +52,7 @@ export const Form = () => {
         $value={persons}
         callbackInput={handlePersonInput}
       />
-      <CustomSelect handleTipsSelect={handleTipsSelect} />
+      <CustomSelect handleTipsSelect={handleTipsSelect} tips={tips} />
       <Total>Total: {total}$</Total>
       <Button onClick={handleTotal} enabled={enabled} />
     </StyledForm>
