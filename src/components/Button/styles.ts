@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const StyledButton = styled.button<{ enabled: boolean }>`
+interface StyledButtonProps {
+  enabled: boolean;
+}
+
+const StyledButton = styled.button<StyledButtonProps>`
   width: 100%;
   min-height: 61px;
   background-color: #2ed2c9;

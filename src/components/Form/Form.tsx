@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FormEvent } from "react";
 import { StyledForm, Title, Subtitle, Total } from "./styles";
 import { Input } from "../Input/Input";
 import { CustomSelect } from "../CustomSelect/CustomSelect";
@@ -34,7 +34,9 @@ export const Form = () => {
     setEnabled(Boolean(bill.input && persons.input));
   }, [bill.input, persons.input]);
 
-  const handleTotal = () => {
+  const handleTotal = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
     setTotal(
       String(
         (
@@ -45,7 +47,7 @@ export const Form = () => {
     );
   };
   return (
-    <StyledForm>
+    <StyledForm  onSubmit={handleTotal}>
       <Title>Welcome to App</Title>
       <Subtitle>Let's go calculate your tips</Subtitle>
       <Input placeholder="Enter bill" {...bill} />
@@ -56,7 +58,7 @@ export const Form = () => {
         options={options}
       />
       <Total>Total: {total}$</Total>
-      <Button onClick={handleTotal} enabled={enabled} />
+      <Button enabled={enabled} />
     </StyledForm>
   );
 };
