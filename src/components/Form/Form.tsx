@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import { StyledForm, Title, Subtitle, Total } from "./styles";
 import { Input } from "../Input/Input";
-import { CustomSelect, options } from "../CustomSelect/CustomSelect";
+import { CustomSelect } from "../CustomSelect/CustomSelect";
 import { Button } from "../Button/Button";
 import { SingleValue } from "react-select";
 
@@ -10,6 +10,12 @@ export interface EventProp {
   value: string;
   label: string;
 }
+
+export const options: EventProp[] = [
+  { value: '1.1', label: '10%' },
+  { value: '1.15', label: '15%' },
+  { value: '1.2', label: '20%' }
+]
 
 export const Form = () => {
   const [bill, setBill] = useState("");
@@ -43,16 +49,16 @@ export const Form = () => {
       <Title>Welcome to App</Title>
       <Subtitle>Let's go calculate your tips</Subtitle>
       <Input
-        $placeholder="Enter bill"
-        $value={bill}
+        placeholder="Enter bill"
+        value={bill}
         callbackInput={handleBillInput}
       />
       <Input
-        $placeholder="Enter persons"
-        $value={persons}
+        placeholder="Enter persons"
+        value={persons}
         callbackInput={handlePersonInput}
       />
-      <CustomSelect handleTipsSelect={handleTipsSelect} tips={tips} />
+      <CustomSelect handleTipsSelect={handleTipsSelect} tips={tips} options={options} />
       <Total>Total: {total}$</Total>
       <Button onClick={handleTotal} enabled={enabled} />
     </StyledForm>

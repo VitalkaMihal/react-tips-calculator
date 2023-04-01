@@ -2,17 +2,17 @@ import React, { ChangeEvent } from "react";
 import { StyledInput } from "./styles";
 
 interface InputProps {
-  $placeholder: string;
+  placeholder: string;
   callbackInput: (event: ChangeEvent<HTMLInputElement>) => void;
-  $value: string;
+  value: string;
 }
 
-export const Input = ({ $placeholder, callbackInput, $value }: InputProps) => {
+export const Input = ({ placeholder, callbackInput, value }: InputProps) => {
   return (
     <StyledInput
-      value={$value}
+      value={value}
       type="number"
-      placeholder={$placeholder}
+      placeholder={placeholder}
       onChange={callbackInput}
     />
   );
