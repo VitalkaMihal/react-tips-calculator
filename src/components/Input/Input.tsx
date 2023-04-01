@@ -3,17 +3,17 @@ import { StyledInput } from "./styles";
 
 interface InputProps {
   placeholder: string;
-  callbackInput: (event: ChangeEvent<HTMLInputElement>) => void;
-  value: string;
+  handleInput: (event: ChangeEvent<HTMLInputElement>) => void;
+  input: string;
 }
 
-export const Input = ({ placeholder, callbackInput, value }: InputProps) => {
+export const Input = ({ placeholder, input, handleInput }: InputProps) => {
   return (
     <StyledInput
-      value={value}
+      value={input}
       type="number"
       placeholder={placeholder}
-      onChange={callbackInput}
+      onChange={handleInput}
     />
   );
 };
