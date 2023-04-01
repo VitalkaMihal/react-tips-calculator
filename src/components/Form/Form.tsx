@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyledForm, Title, Subtitle, Total } from "./styles";
 import { Input } from "../Input/Input";
 import { CustomSelect } from "../CustomSelect/CustomSelect";
@@ -22,13 +22,17 @@ export const Form = () => {
   const persons = useInput();
   const [tips, setTips] = useState(options[0]);
   const [total, setTotal] = useState("0,00");
-  const enabled = Boolean(bill.input && persons.input);
+  const [enabled, setEnabled] = useState(false);
 
   const handleTipsSelect = (event: SingleValue<EventProp>) => {
     if (event) {
       setTips(event);
     }
   };
+
+  useEffect(() => {
+    setEnabled(Boolean(bill.input && persons.input));
+  }, [bill.input, persons.input]);
 
   const handleTotal = () => {
     setTotal(

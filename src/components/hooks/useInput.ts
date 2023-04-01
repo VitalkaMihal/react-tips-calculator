@@ -12,6 +12,7 @@ export const useInput = (
   const handleInput = (prop: ChangeEvent<HTMLInputElement>) => {
     setInput(prop.target.value);
   };
+  
   return {
     input,
     handleInput,
