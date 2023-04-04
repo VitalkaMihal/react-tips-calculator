@@ -7,21 +7,21 @@ import { SingleValue } from "react-select";
 import { useInput } from "../hooks/useInput";
 
 export interface EventProp {
-  value: string;
+  value: number;
   label: string;
 }
 
 export const options: EventProp[] = [
-  { value: "1.1", label: "10%" },
-  { value: "1.15", label: "15%" },
-  { value: "1.2", label: "20%" },
+  { value: 10, label: "10%" },
+  { value: 15, label: "15%" },
+  { value: 20, label: "20%" },
 ];
 
 export const Form = () => {
   const bill = useInput();
   const persons = useInput();
   const [tips, setTips] = useState(options[0]);
-  const [total, setTotal] = useState("0,00");
+  const [total, setTotal] = useState(0);
   const [enabled, setEnabled] = useState(false);
 
   const handleTipsSelect = (event: SingleValue<EventProp>) => {
@@ -36,15 +36,10 @@ export const Form = () => {
 
   const handleTotal = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
     setTotal(
-      String(
-        (
-          (Number(bill.input) * Number(tips.value)) /
-          Number(persons.input)
-        ).toFixed(2)
-      )
-    );
+          (Number(bill.input) * (1 + tips.value/100) /
+          Number(persons.input) 
+        ));
   };
   return (
     <StyledForm  onSubmit={handleTotal}>
@@ -57,7 +52,7 @@ export const Form = () => {
         tips={tips}
         options={options}
       />
-      <Total>Total: {total}$</Total>
+      <Total>Total: {total.toFixed(2)}$</Total>
       <Button enabled={enabled} />
     </StyledForm>
   );
