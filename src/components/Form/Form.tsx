@@ -7,8 +7,8 @@ import { SingleValue } from "react-select";
 import { useInput } from "../hooks/useInput";
 
 export interface EventProp {
-  value: number;
-  label: string;
+  readonly value: number;
+  readonly label: string;
 }
 
 export const options: EventProp[] = [
