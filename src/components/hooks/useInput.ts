@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 
 interface UseInputProp {
   input: string;
@@ -9,9 +9,9 @@ export const useInput = (
   prop?: ChangeEvent<HTMLInputElement>
 ): UseInputProp => {
   const [input, setInput] = useState("");
-  const handleInput = (prop: ChangeEvent<HTMLInputElement>) => {
+  const handleInput = useCallback((prop: ChangeEvent<HTMLInputElement>) => {
     setInput(prop.target.value);
-  };
+  }, []);
   
   return {
     input,
